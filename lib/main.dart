@@ -35,6 +35,7 @@ class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.cyan,
       appBar: AppBar(title: Text('Counter')),
       body: BlocBuilder<CounterBloc, int>(
         builder: (context, count) {
@@ -74,10 +75,10 @@ class CounterPage extends StatelessWidget {
         shape: CircularNotchedRectangle(),
         color: Colors.red,
         notchMargin: 8,
-        clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.hardEdge,
         child: BottomNavigationBar(items: [
           BottomNavigationBarItem(icon: Icon(Icons.cancel), label: "Title"),
-          BottomNavigationBarItem(icon: Icon(Icons.cancel), label: "Title"),
+          BottomNavigationBarItem(icon: Icon(Icons.cancel),label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.cancel), label: "Title"),
         ]),
       ),
