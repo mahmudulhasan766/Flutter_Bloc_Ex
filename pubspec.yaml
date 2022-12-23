@@ -33,6 +33,7 @@ dependencies:
   equatable: ^2.0.5
   bloc: ^8.1.0
   connectivity_plus: ^3.0.2
+  email_validator: ^2.1.17
 
   cupertino_icons: ^1.0.5
 

@@ -9,6 +9,6 @@ abstract class UserEvent extends Equatable{
 
 class ChangeNameEvent extends UserEvent{
   final String name;
-  ChangeNameEvent(this.name);
+  const ChangeNameEvent(this.name);
 }
 class BirthdayEvent extends UserEvent{}

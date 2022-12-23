@@ -1,12 +1,14 @@
 import 'package:bloc/bloc.dart';
 
 import 'package:bolc_ex/bloc/internet_bloc_cubit/internet_bloc_cubit.dart';
+import 'package:bolc_ex/bloc/login_screen_bloc/login_screen_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'app.dart';
 
+import 'bloc/login_screen_bloc/login_screen.dart';
 import 'counter/bloc/counter_bloc.dart';
 
 import 'counter_observer.dart';
@@ -27,8 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: BlocProvider(
-        create: (context) => InternetBlocCubit(),
-        child: const CounterPage(),
+        create: (context) => LoginScreenBloc(),
+        child: LoginScreen(),
       ),
     );
   }
@@ -64,40 +66,9 @@ class CounterPage extends StatelessWidget {
             }
           }
       ),
-      // BlocBuilder<InternetBloc, InternetState>(
-      //   builder: (context, connection) {
-      //     if(connection is InternetGainedState){
-      //       return const Text("Connected");
-      //     } else if(connection is InternetLostState){
-      //      return const Text("No Connection");
-      //     } else{
-      //       return const Text("Loading...");
-      //     }
-      //   },
-      // ),
-      // floatingActionButton: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.end,
-      //   mainAxisAlignment: MainAxisAlignment.end,
-      //   children: <Widget>[
-      //     Padding(
-      //       padding: EdgeInsets.symmetric(vertical: 5.0),
-      //       child: FloatingActionButton(
-      //         child: Icon(Icons.add),
-      //         onPressed: () => context.read<CounterBloc>().add(CounterIncrementPressed()),
-      //       ),
-      //     ),
-      //     Padding(
-      //       padding: EdgeInsets.symmetric(vertical: 5.0),
-      //       child: FloatingActionButton(
-      //         child: Icon(Icons.remove),
-      //         onPressed: () => context.read<CounterBloc>().add(CounterDecrementPressed()),
-      //       ),
-      //     ),
-      //   ],
-      // ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
-        child: Icon(Icons.close),
+        child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
@@ -105,9 +76,9 @@ class CounterPage extends StatelessWidget {
         notchMargin: 8,
         clipBehavior: Clip.hardEdge,
         child: BottomNavigationBar(items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.cancel), label: "Title"),
-          BottomNavigationBarItem(icon: Icon(Icons.cancel),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.cancel), label: "Title"),
+          BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: "Title"),
+          BottomNavigationBarItem(icon: Icon(Icons.add),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Title"),
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
